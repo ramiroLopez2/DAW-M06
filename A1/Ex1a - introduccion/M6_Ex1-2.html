@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>M6 - Introduccion</title>
+    </head>
+    <body> 
+        <h1>Exercici 1.2</h1>
+        <input type="button" value="Info Secreta" id="boto1">
+        <div id="resultat"></div>
+        <script>
+            document.getElementById("boto1").onclick = function () {
+                document.getElementById("resultat").innerHTML = "<p>Ramiro Lopez</p>";
+                document.getElementById("resultat").innerHTML += "<p>20 años</p>";
+            };
+        </script>
+
+        <button id="boto2">Mostra Dades</button>
+        <div id="resultat2"></div>
+        <script>
+            let res = "<p>Ramiro Lopez</p>";
+            res += "<p>20 años</p>";
+
+            document.getElementById("boto2").onclick = function () {
+                document.getElementById("resultat2").innerHTML = res;
+            };
+        </script>
+    </body>
+</html>

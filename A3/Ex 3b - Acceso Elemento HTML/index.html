@@ -1,0 +1,44 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+
+            document.getElementById('boton1').onclick = function () {
+                let arrayParagraf = document.getElementsByTagName('p');
+                arrayParagraf[1].style.color = 'red';
+                arrayParagraf[3].style.color = 'red';
+            }
+
+            document.getElementById('boton2').onclick = function () {
+                let arrayClass = document.getElementsByClassName('lletraGran');
+                arrayClass[0].style.fontSize = '20px';
+                arrayClass[1].style.fontSize = '20px';
+            }
+
+            document.getElementById('boton3').onclick = function () {
+                let elementFive = document.getElementById('cinque');
+                elementFive.style.backgroundColor = 'green';
+                elementFive.style.padding = '20px';
+            }
+        }            
+    </script>
+</head>
+
+<body>
+    <h1>Accés als elements de la pàgina</h1>
+    <button id="boton1">CLICK1</button>
+    <button id="boton2">CLICK2</button>
+    <button id="boton3">CLICK3</button>
+    <p id="primer" class="lletraGran">primer paràgraf</p>
+    <p id="segon">segon paràgraf</p>
+    <p id="tercer" class="lletraGran">tercer paràgraf</p>
+    <p id="quart">quart paràgraf</p>
+    <p id="cinque">cinquè paràgraf</p>
+</body>
+
+</html>

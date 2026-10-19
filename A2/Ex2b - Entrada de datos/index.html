@@ -1,0 +1,29 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            document.getElementById("boton").onclick = function () {
+                const usuario = prompt("Introduce un nombre de usario");
+                const correo = prompt("Introduce tu correo electronico");
+
+                let res = `<p>Usuario: ${usuario}</p> 
+                            <p>Correo: ${correo}</p>`;
+
+                document.getElementById("resultat").innerHTML = res;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Entrada de datos con prompt()</h1>
+    <button id="boton">DATOS</button>
+    <div id="resultat"></div>
+</body>
+
+</html>

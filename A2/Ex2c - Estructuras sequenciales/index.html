@@ -1,0 +1,78 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            const resultado = document.getElementById("resultado");
+
+            document.getElementById("boton1").onclick = function () {
+                const costado = prompt("Ingresa el costado de un cuadrado");
+
+                var perimetro = costado * 4;
+
+                var res = `<p>El perimetro del cuadrado es: ${perimetro}</p>`;
+
+                resultado.innerHTML = res;
+            }
+
+            document.getElementById("boton2").onclick = function () {
+
+                const numero1 = parseInt(prompt("Ingresa el primer numero:"));
+                const numero2 = parseInt(prompt("Ingresa el segundo numero: "));
+                const numero3 = parseInt(prompt("ingresa el tercer numero: "));
+                const numero4 = parseInt(prompt("Inglresa el cuarto numero: "));
+
+                var suma = numero1 + numero2;
+                var producto = numero3 * numero4;
+
+                var res = `<p>La suma de ${numero1} + ${numero2} es: ${suma}</p>
+                            <p>El prodcuto de ${numero3} * ${numero4} es: ${producto}</p>`
+
+                resultado.innerHTML = res;
+            }
+
+            document.getElementById("boton3").onclick = function () {
+
+                const numero1 = parseInt(prompt("Ingresa el primer numero:"));
+                const numero2 = parseInt(prompt("Ingresa el segundo numero: "));
+                const numero3 = parseInt(prompt("ingresa el tercer numero: "));
+                const numero4 = parseInt(prompt("Inglresa el cuarto numero: "));
+
+                var suma = numero1 + numero2 + numero3 + numero4;
+                var producto = numero1 * numero2 * numero3 * numero4;
+
+                var res = `<p>La suma de los cuantro numeros es: ${suma}</p>
+                            <p>El pruducto de la multiplicación es: ${producto}</p>`
+
+                resultado.innerHTML = res;
+            }
+
+            document.getElementById("boton4").onclick = function () {
+
+                const articulo = parseDouble(prompt("Ingresa el precio del articulo: "));
+                const dinero = parseDoubleº (prompt("Ingresa la cantidad de dinero que tienes"));
+
+                var total = dinero * articulo;
+
+                var res = `<p>El total a abonar es: ${total}</p>`;
+
+                resultado.innerHTML = res;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Estructuras sequenciales de programación</h1>
+    <button id="boton1">CLICK</button>
+    <button id="boton2">CLICK</button>
+    <button id="boton3">CLICK</button>
+    <button id="boton4">CLICK</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

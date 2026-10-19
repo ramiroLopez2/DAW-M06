@@ -1,0 +1,94 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            const resultado = document.getElementById('resultado');
+
+            let texto = prompt('Introduce una frase: ');
+
+            document.getElementById('boton1').onclick = function () {
+                resultado.innerHTML = `<p>La frase es: ${texto}</p>`;
+            }
+
+            document.getElementById('boton2').onclick = function () {
+                resultado.innerHTML = `<p>La longitud de la frase es: ${texto.length}</p>`;
+            }
+
+            document.getElementById('boton3').onclick = function () {
+                const lower = texto.toLocaleLowerCase();
+                const upper = texto.toUpperCase();
+                resultado.innerHTML = `<p>Texto en minuscula: ${lower}</p>`;
+                resultado.innerHTML += `<p>Texto en mayusculas: ${upper}</p>`;
+            }
+
+            document.getElementById('boton4').onclick = function () {
+                resultado.innerHTML = `<p>Primera Caracter: ${texto.charAt(0)}<p>`;
+                resultado.innerHTML += `<p>Ultimo caracter: ${texto.slice(-1)}</p>`;
+            }
+
+            document.getElementById('boton5').onclick = function () {
+                let contador = 0;
+                texto.toLowerCase();
+                for (let i = 0; i < texto.length; i++) {
+                    if (texto[i] === 'a') {
+                        contador++;
+                    }
+                }
+
+                resultado.innerHTML = `<p>Hay ${contador} de letras 'a'</p>`;
+            }
+
+            document.getElementById('boton6').onclick = function () {
+                resultado.innerHTML = `<p>La primera posicion de 'a' es: ${texto.indexOf('a')}</p>
+                                        <p>La ultima posicion es: ${texto.lastIndexOf('a')}</P>`;
+            }
+
+            document.getElementById('boton7').onclick = function () {
+                resultado.innerHTML = `<p>Primer subString: ${texto.substring(0, 5)}</p>
+                                        <p>Segundo subString: ${texto.substring(texto.length - 5)}</p>`;
+            }
+
+            document.getElementById('boton8').onclick = function () {
+                const palabraBuscar = prompt('¿Qué palabra quieres buscar?');
+
+                if (palabraBuscar) {
+                    if (texto.toLowerCase().includes(palabraBuscar.toLowerCase())) {
+                        resultado.innerHTML = `<p>La palabra existe</p>`;
+                    } else {
+                        resultado.innerHTML = `<p>La palabra no existe</p>`;
+                    }
+                }
+            }
+
+            document.getElementById('boton9').onclick = function () {
+                const palabraRemplzar = prompt('Introduce la palabra a reemplazar');
+                const nuevaPalabra = prompt('Introduce la nueva palabra');
+
+                let palabra = texto.replace(palabraRemplzar, nuevaPalabra);
+
+                resultado.innerHTML = `<p>La nueva frase es: ${palabra}</p>`;
+            }
+        }            
+    </script>
+</head>
+
+<body>
+    <h1>Objeto <strong>String</strong></h1>
+    <button id="boton1">CLICK1</button>
+    <button id="boton2">CLICK2</button>
+    <button id="boton3">CLICK3</button>
+    <button id="boton4">CLICK4</button>
+    <button id="boton5">CLICK5</button>
+    <button id="boton6">CLICK6</button>
+    <button id="boton7">CLICK7</button>
+    <button id="boton8">CLICK8</button>
+    <button id="boton9">CLICK9</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

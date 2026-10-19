@@ -1,0 +1,203 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            const resultado = document.getElementById("resultado");
+
+            document.getElementById("boton1").onclick = function () {
+
+                let x = 0;
+                let i = 0;
+                let res = '';
+
+                while (i < 25) { // si i empezara en 1 seria i<26
+                    x = x + 11;
+                    if (i === 24) {
+                        res += x;
+                    } else {
+                        res += x + '-';
+                    }
+                    i++;
+                }
+
+                resultado.innerHTML = `<p>El valor es de: ${res}</p>`;
+            }
+
+            document.getElementById("boton2").onclick = function () {
+
+                let x = 0;
+                let i = 0;
+                let res = '';
+
+                while (x < 496) {
+                    x = x + 8;
+                    if (x >= 496) {
+                        res += x;
+                    } else {
+                        res += x + '-';
+                    }
+                    i++;
+                }
+
+                resultado.innerHTML = `<p>Los multiplos de 8: ${res}</p> <p>iteracion: ${i}</p>`;
+            }
+
+            document.getElementById("boton3").onclick = function () {
+
+                let h = 0; // guarda los valores de altura
+                let i = 0; // itera
+                let alturaTotal = 0; // guarda el total la altura
+
+
+                while (i < 5) {
+                    h = parseFloat(prompt('Ingresa la altura'));
+                    alturaTotal += h;
+                    i++;
+                }
+
+                let media = alturaTotal / 5; // se haca el calculo de la media
+
+                resultado.innerHTML = `<p>La altura media es: ${media}</p>`;
+            }
+
+            document.getElementById("boton4").onclick = function () {
+
+                let numero = 0;
+                let acum = 0;
+
+                do {
+                    numero = parseInt(prompt("Introduce numeros"));
+                    if (numero !== 9999) {
+                        acum += numero;
+                    }
+                } while (numero !== 9999)
+
+                resultado.innerHTML = ':. Terminado .:' + ' Acumulacion: ' + acum;
+
+                if (acum === 0) {
+                    resultado.innerHTML += '<p>El valor acumulado es 0</p>';
+                } else if (acum > 0) {
+                    resultado.innerHTML += '<p>El valor acumulado es mayor a 0</p>';
+                } else if (acum < 0) {
+                    resultado.innerHTML += '<p>El valor acumulado es menor a 0</p>';
+                }
+            }
+
+            document.getElementById("boton5").onclick = function () {
+
+                let number = Math.floor(Math.random() * 10) + 1;
+                let numUsuario = 0;
+
+                do {
+                    numUsuario = parseInt(prompt("Intenta adivinar el nuemro del 0 a 10"));
+
+                    if (isNaN(numUsuario)) {
+                        alert('-_-No es un numero valido-_-');
+                        continue;
+                    }
+
+                    if (numUsuario !== number) {
+                        alert("Incorrecto, Interalo de nuevo");
+                    }
+
+                } while (numUsuario !== number);
+
+                resultado.innerHTML = `<p>¡¡Enhorabuena!! - has acertado el numero: ${number}</p>`;
+            }
+
+            document.getElementById("boton6").onclick = function () {
+
+                let numUser = 0;
+                let suma = 0;
+
+                for (let i = 0; i < 10; i++) {
+                    numUser = parseInt(prompt(':. Introduce 10 numero .:'));
+
+                    if (i >= 5) {
+                        suma = suma + numUser;
+                    }
+                }
+
+                resultado.innerHTML = `<p>--La suma de los ultimos 5 valores es: ${suma} --</p>`;
+            }
+
+            document.getElementById("boton7").onclick = function () {
+
+                let number = parseInt(prompt('--Ingresa un numero--'));
+                let table = `
+                    <table border="1">
+                        <tr>
+                            <th colspan="3">tabla del: ${number}</th>
+                        </tr>`;
+
+                for (let i = 1; i < 11; i++) {
+                    table += `
+                    <tr>
+                        <td>${number}  *  ${i}</td>
+                        <td>${number * i}</td>   
+                    </tr>`;
+                }
+
+                table += `</table>`;
+
+                resultado.innerHTML = table;
+            }
+
+            document.getElementById("boton8").onclick = function () {
+
+                let acumNeg = 0;
+                let acumPos = 0;
+                let acumCero = 0;
+                let acumPar = 0;
+                let acumImpar = 0;
+                let suma = 0;
+
+                for (let i = 0; i < 6; i++) {
+                    let number = parseInt(prompt('-Ingresa 6 numeros-'));
+
+                    if (number < 0) {
+                        acumNeg++;
+                    } else if (number > 0) {
+                        acumPos++;
+                    } else {
+                        acumCero++;
+                    }
+
+                    if (number % 2 === 0) {
+                        acumPar++;
+                        suma = suma + number;
+                    } else {
+                        acumImpar++;
+                    }
+                }
+
+                resultado.innerHTML = `<p>Cantidad negativos: ${acumNeg}</p>
+                        <p>Cantidad positivos: ${acumPos}</p>
+                        <p>Cantidad ceros: ${acumCero}</p>
+                        <p>Cantidad pares: ${acumPar}</p>
+                        <p>Cantidad impares: ${acumImpar}</p>
+                        <p>La suma de los pares es: ${suma}</p>`;
+            }
+        }   
+    </script>
+</head>
+
+<body>
+    <h1>Bucles: <i>While</i>, <i>DoWhile</i>, <i>For</i></h1>
+    <button id="boton1">CLICK1</button>
+    <button id="boton2">CLICK2</button>
+    <button id="boton3">CLICK3</button>
+    <button id="boton4">CLICK4</button>
+    <button id="boton5">CLICK5</button>
+    <button id="boton6">CLICK6</button>
+    <button id="boton7">CLICK7</button>
+    <button id="boton8">CLICK8</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

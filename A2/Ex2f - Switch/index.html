@@ -1,0 +1,49 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            const resultado = document.getElementById("resultado");
+
+            document.getElementById("boton1").onclick = function () {
+
+                const palabra = prompt("Introduce una palabra (casa, taula, gos, gat):").toLowerCase();
+                let palabraTraducida = "";
+
+                switch (palabra) {
+                    case 'casa':
+                        palabraTraducida = 'house';
+                        document.body.style.backgroundColor = 'gray';
+                        break;
+                    case 'taula':
+                        palabraTraducida = 'table';
+                        document.body.style.backgroundColor = 'brown';
+                        break;
+                    case 'gos':
+                        palabraTraducida = 'dog';
+                        document.body.style.backgroundColor = 'orange';
+                        break;
+                    case 'gat':
+                        palabraTraducida = 'cat';
+                        //palabraTraducida.style.color = 'white';
+                        document.body.style.backgroundColor = 'purple';
+                        break;
+                }
+
+                resultado.innerHTML = `<h1>${palabraTraducida}<h1>`;
+            }
+        }   
+    </script>
+</head>
+
+<body>
+    <h1>Menu Switch</h1>
+    <button id="boton1">CLICK1</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

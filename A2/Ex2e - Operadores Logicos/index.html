@@ -1,0 +1,95 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            const resultado = document.getElementById("resultado");
+
+            document.getElementById("boton1").onclick = function () {
+
+                let number1 = prompt("Ingresa el primer numero");
+                let number2 = prompt("Ingresa el segundo numero");
+                let number3 = prompt("Ingresa el tercer numero");
+
+                number1 = parseInt(number1);
+                number2 = parseInt(number2);
+                number3 = parseInt(number3);
+
+                let suma = number1 + number2;
+                let multiplicacion = suma * number3;
+
+                if (number1 == number2 && number2 == number3) {
+                    resultado.innerHTML = `<p>La suma es: ${suma}</p> <p>La mutiplicacion de la suma es: ${multiplicacion}</p>`;
+                } else {
+                    resultado.innerHTML = '): Los numeros no son iguales :(';
+                }
+            }
+
+            document.getElementById("boton2").onclick = function () {
+
+                let number1 = prompt("Ingresa el primer numero");
+                let number2 = prompt("Ingresa el segundo numero");
+                let number3 = prompt("Ingresa el tercer numero");
+
+                number1 = parseInt(number1);
+                number2 = parseInt(number2);
+                number3 = parseInt(number3);
+
+                if (number1 < 10 && number2 < 10 && number3 < 10) {
+                    resultado.innerHTML = ':: Todos los numeros son menores a diez ::';
+                } else {
+                    resultado.innerHTML = ':: Algun numero es mayor a 10 ::';
+                }
+            }
+
+            document.getElementById("boton3").onclick = function () {
+
+                let sueldoActual = prompt("-- Ingresa el sueldo actual");
+                let añosAntiguedad = prompt("-- ingresa los años de antiguedad");
+
+                sueldoActual = parseInt(sueldoActual);
+                añosAntiguedad = parseInt(añosAntiguedad);
+
+                let sueldoNuevo = 0;
+
+                if (sueldoActual < 1000 && añosAntiguedad >= 10) {
+                    sueldoNuevo = sueldoActual * 1.20;
+                    resultado.innerHTML = `<p>El nuevo sueldo es de: ${sueldoNuevo}€ - gracias por los años</p>`;
+                } else if (sueldoActual < 1000 && añosAntiguedad < 10) {
+                    sueldoNuevo = sueldoActual * 1.05;
+                    resultado.innerHTML = `<p>El nuevo sueldo es de: ${sueldoNuevo}€ - te faltan años</p>`;
+                } else if (sueldoActual >= 1000) {
+                    resultado.innerHTML = `<p>Tu sueldo es de: ${sueldoActual}€ </p>`;
+                }
+            }
+
+            document.getElementById("boton4").onclick = function () {
+
+                const select = prompt("Introduce estudios o menor edad u utro:");
+
+                if (select == 'Menor edad' || select == 'Menor de edad' || select == 'menor de edad'
+                    || select == 'Universitario' || select == 'Estudiante universitario' || select == 'universitario') {
+                    resultado.innerHTML = ':. Aplicar descuento .:';
+                } else {
+                    resultado.innerHTML = ':. No aplicar descuento .:';
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Operadores Logicos</h1>
+    <p>Botones:</p>
+    <button id="boton1">CLICK1</button>
+    <button id="boton2">CLICK2</button>
+    <button id="boton3">CLICK3</button>
+    <button id="boton4">CLICK4</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

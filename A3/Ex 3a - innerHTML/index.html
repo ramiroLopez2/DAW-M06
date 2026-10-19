@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+
+            document.getElementById("boton1").onclick = function () {
+
+                document.getElementById('negreta').innerHTML = document.getElementById('nombre').value;
+
+                document.getElementById('resultat').innerHTML = `<div>
+                    <p>La propietat <i>innerHTML</i> és una característica dels elements del DOM
+                    (<i>Document Object Model</i>) que permet accedir o modificar el contingut HTML intern
+                    d’un element d’una pàgina web.</p>
+                    </div>`;
+            }
+        }            
+    </script>
+</head>
+
+<body>
+    <h1>Propiedad <i>InnerHTML</i></h1>
+    <button id="boton1">CLICK1</button>
+    <p>Bienvenido a mi web <strong id="negreta">nom</strong></p>
+    <input type="text" name="nombre" id="nombre" placeholder="escribir nombre">
+    <div id="resultat"></div>
+</body>
+
+</html>

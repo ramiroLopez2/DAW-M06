@@ -1,0 +1,166 @@
+<!DOCTYPE html lang="es">
+<html>
+
+<head>
+    <title>Exercici</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            const resultado = document.getElementById("resultado");
+
+            document.getElementById("boton1").onclick = function () {
+
+                const nota1 = parseFloat(prompt("Ingresa la nota1: "));
+                const nota2 = parseFloat(prompt("Ingresa la nota2: "));
+                const nota3 = parseFloat(prompt("Ingresa la nota3: "));
+
+                let sum = nota1 + nota2 + nota3;
+                let media = sum / 3;
+                media.toFixed(2);
+
+                if (media >= 5) {
+                    resultado.innerHTML = `<p>La media es: ${media}</p> <p>¡Promocionat!</p>`;
+                } else {
+                    resultado.innerHTML = `<p>La media es: ${media}</p> <p>):No promocionat:(</p>`;
+                }
+            }
+
+            document.getElementById("boton2").onclick = function () {
+
+                const password1 = prompt("Ingresa la priemra pass: ");
+                const password2 = prompt("Ingresa la segunda pass: ");
+
+                if (password1 === password2) {
+                    resultado.innerHTML = '¡Las contraseñas son iguales!';
+                } else {
+                    resultado.innerHTML = '):Las contraseñas no coinciden:()';
+                }
+            }
+
+            document.getElementById("boton3").onclick = function () {
+
+                const number1 = parseInt(prompt("Ingresar numero1"));
+                const number2 = parseInt(prompt("Ingresar numero2"));
+
+                let suma, resta, multi, division;
+
+                if (number1 > number2) {
+                    suma = number1 + number2;
+                    resta = number1 - number2;
+                    resultado.innerHTML = `<p>La suma es: ${suma}</p> <p>La resta es: ${resta}</p>`;
+                } else {
+                    multi = number1 * number2;
+                    division = number1 / number2;
+                    resultado.innerHTML = `<p>La division es: ${division}</p> <p>La multiplicación es: ${multi}</p>`;
+                }
+            }
+
+            document.getElementById("boton4").onclick = function () {
+
+                const number = parseInt(prompt("Ingresa un numero entre (0-99): "));
+
+                if (number >= 0 && number <= 9) {
+                    resultado.innerHTML = '-: El numero tiene un digito :-'
+                } else if (number >= 10 && number <= 99) {
+                    resultado.innerHTML = '-: El numero tiene dos digitos :-';
+                } else {
+                    resultado.innerHTML = '-: El numero esta fuera de rango :-';
+                }
+            }
+
+            document.getElementById("boton5").onclick = function () {
+
+                const number1 = parseInt(prompt("Ingresa el primero numero"));
+                const number2 = parseInt(prompt("Ingresa el segundo numero"));
+                const number3 = parseInt(prompt("Ingresa el tercer numero"));
+
+                if (number1 > number2 && number1 > number3) {
+                    resultado.innerHTML = `-: El numero ${number1} es el mayor de los tres :-`;
+                } else if (number2 > number3) {
+                    resultado.innerHTML = `-: El numero ${number2} es el mayor de lso tres :-`;
+                } else {
+                    resultado.innerHTML = `-: El numero ${number3} es el mayor de los tres :-`;
+                }
+            }
+
+            document.getElementById("boton6").onclick = function () {
+
+                const number = parseInt(prompt("Ingresa un numero"));
+
+                if (number === 0) {
+                    resultado.innerHTML = '-: El numero es 0';
+                } else if (number < 0) {
+                    resultado.innerHTML = '-: El numero es negativo :-';
+                } else {
+                    resultado.innerHTML = '-: El numero es positivo :-';
+                }
+            }
+
+            document.getElementById("boton7").onclick = function () {
+
+                let number = prompt("Ingresa un numero");
+
+                if (isNaN(number)) {
+                    alert('--El numero no es valido--');
+                    return;
+                }
+
+                number = parseInt(number);
+
+                if (number < 0) {
+                    alert('--No permite negativos--');
+                    return;
+                }
+
+                if (number < 10) {
+                    resultado.innerHTML = "--El numero es de una cifra--";
+                } else if (number < 100) {
+                    resultado.innerHTML = 'El numero es de dos cifras';
+                } else if (number <= 999) {
+                    resultado.innerHTML = 'El numero es de tres cifras';
+                } else {
+                    resultado.innerHTML = 'Error numero de cifras no permitida';
+                }
+            }
+
+            document.getElementById("boton8").onclick = function () {
+
+                const nombre = prompt("Ingresa nombre estudiante: ");
+                const cantidadPreguntas = prompt("Ingresa la cantidad preguntas");
+                let cantidadCorrectas = prompt("Ingresa la cantidad de preguntas acertadas");
+
+                parseInt(cantidadPreguntas);
+                parseInt(cantidadCorrectas);
+
+                // primero va la cantidad y luego el total
+                let porcentaje = (cantidadCorrectas / cantidadPreguntas) * 100;
+
+                if (porcentaje >= 90) {
+                    resultado.innerHTML = '-: Nivel superior :-';
+                } else if (porcentaje >= 75 && porcentaje < 90) {
+                    resultado.innerHTML = '-: Nivel medio :-';
+                } else if (porcentaje >= 50 && porcentaje < 75) {
+                    resultado.innerHTML = '-: Nivel regular :-';
+                } else {
+                    resultado.innerHTML = '-: Fuera de nivel :-';
+                }
+            }
+        }   
+    </script>
+</head>
+
+<body>
+    <h1>Estructuras sequenciales de programación</h1>
+    <button id="boton1">CLICK1</button>
+    <button id="boton2">CLICK2</button>
+    <button id="boton3">CLICK3</button>
+    <button id="boton4">CLICK4</button>
+    <button id="boton5">CLICK5</button>
+    <button id="boton6">CLICK6</button>
+    <button id="boton7">CLICK7</button>
+    <button id="boton8">CLICK8</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

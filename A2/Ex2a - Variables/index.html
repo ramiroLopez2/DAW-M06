@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercici 2a</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+
+            const resultado = document.getElementById("resultado");
+
+            document.getElementById("boton1").onclick = function () {
+                var nom = "Bruno";
+                var sueldo = 1600;
+                resultado.innerHTML = `<p><b>Trabajador:</b> ${nom}</p> <p><b>Sueldo:</b> ${sueldo}</p>`;
+            };
+
+            document.getElementById("boton2").onclick = function () {
+                var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+                var res = "";
+
+                for (let i = 0; i < meses.length; i += 2) {
+                    res += `<p>${meses[i]}</p>`;
+                }
+
+                resultado.innerHTML = res;
+            };
+
+            let num = 0; // se pone fuera porque al llamar la funcion o sea al dar click se machacan las variables.
+            document.getElementById("boton3").onclick = function () {
+                num++;
+
+                resultado.innerHTML = `<p>Cantidad de clicks: ${num}</p>`;
+            }
+
+            document.getElementById("boton4").onclick = function () {
+                const radio = document.getElementById("texto").value;
+                const res = 2 * Math.PI * radio;
+                resultado.innerHTML = `<p>El radio es: ${res.toFixed(2)}</p>`;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Exercici 2a</h1>
+    <button id="boton1">CLICK</button>
+    <button id="boton2">CLICK</button>
+    <button id="boton3">CLICK</button>
+    <button id="boton4">CLICK</button>
+    <spam>Introduce el radio</spam><input type="number" id="texto" />
+    <div id="resultado"></div>
+</body>
+
+</html>
