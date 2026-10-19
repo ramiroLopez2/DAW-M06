@@ -15,15 +15,16 @@ window.onload = function () {
     function ex1_validarData() {
 
         let data = document.getElementById('ex1_data').value;
+        let data1 = new Date(data);
 
         let vacio = "";
 
-        if (data === vacio) {
+        if (data1 === vacio) {
             alert('Informa una fecha en formato DD/MM/AAAA');
             return;
         }
 
-        if (validaData(data)) {
+        if (validaData(data1)) {
             document.getElementById('resultado').innerHTML = 'Data correcta';
         } else {
             document.getElementById('resultado').innerHTML = 'Data incorrecta';
@@ -49,11 +50,14 @@ window.onload = function () {
     // =============================
     function ex2_mostrarAvui() {
 
+        const d = new Date;
+        let text = d.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        })
 
-
-
-
-
+        document.getElementById('ex2_out').innerHTML = text;
     }
 
     // =============================
@@ -61,12 +65,38 @@ window.onload = function () {
     // =============================
     function ex3_diferencia() {
 
+        let txtA = document.getElementById('ex3_a').value;
+        let txtB = document.getElementById('ex3_b').value;
 
+        let vacio = "";
 
+        if(txtA === vacio || txtB === vacio){
+            document.getElementById('ex3_out').innerHTML = 'Porfavor, informa las dos fechas';
+            return;
+        }
 
+        if(txtA > txtB){
+             document.getElementById('ex3_out').innerHTML = 'La fecha A debe de ser inferior a la B';
+             return;
+        }
 
+        if(txtA === txtB){
+             document.getElementById('ex3_out').innerHTML = 'La fecha A es igual a la B, no hay diferencia de dias';
+             return;
+        }
 
+        let dataA = new Date(txtA);
+        let dataB = new Date(txtB);
 
+        let restoMilisegundos = dataB - dataA;
+
+        const minuto = 1000 * 60;
+        const hora = minuto * 60;
+        const dia = hora * 24;
+
+        const diferenciaDias = Math.floor(restoMilisegundos / dia);
+
+        document.getElementById('ex3_out').innerHTML = 'La diferencia de dias es: ' + diferenciaDias;
     }
 
     // =============================
@@ -74,12 +104,19 @@ window.onload = function () {
     // =============================
     function ex4_diaSetmana() {
 
+        let fechatxt = document.getElementById('ex4_data').value;
+        let fecha = new Date(fechatxt);
 
+        let vacio = '';
 
+        if(fecha === vacio){
+            document.getElementById('ex4_out').innerHTML = 'ingresa un fecha porfavor';
+            return;
+        }
 
+        const diaSemanaTexto = fecha.toLocaleDateString('es-ES', { weekday: 'long' });
 
-
-
+        document.getElementById('ex4_out').innerHTML = 'Es el dia ' + diaSemanaTexto;
     }
 
     // =============================
