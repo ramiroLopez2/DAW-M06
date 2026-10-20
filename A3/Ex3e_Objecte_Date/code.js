@@ -70,19 +70,19 @@ window.onload = function () {
 
         let vacio = "";
 
-        if(txtA === vacio || txtB === vacio){
+        if (txtA === vacio || txtB === vacio) {
             document.getElementById('ex3_out').innerHTML = 'Porfavor, informa las dos fechas';
             return;
         }
 
-        if(txtA > txtB){
-             document.getElementById('ex3_out').innerHTML = 'La fecha A debe de ser inferior a la B';
-             return;
+        if (txtA > txtB) {
+            document.getElementById('ex3_out').innerHTML = 'La fecha A debe de ser inferior a la B';
+            return;
         }
 
-        if(txtA === txtB){
-             document.getElementById('ex3_out').innerHTML = 'La fecha A es igual a la B, no hay diferencia de dias';
-             return;
+        if (txtA === txtB) {
+            document.getElementById('ex3_out').innerHTML = 'La fecha A es igual a la B, no hay diferencia de dias';
+            return;
         }
 
         let dataA = new Date(txtA);
@@ -109,7 +109,7 @@ window.onload = function () {
 
         let vacio = '';
 
-        if(fecha === vacio){
+        if (fecha === vacio) {
             document.getElementById('ex4_out').innerHTML = 'ingresa un fecha porfavor';
             return;
         }
