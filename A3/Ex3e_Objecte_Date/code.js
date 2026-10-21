@@ -105,14 +105,15 @@ window.onload = function () {
     function ex4_diaSetmana() {
 
         let fechatxt = document.getElementById('ex4_data').value;
-        let fecha = new Date(fechatxt);
 
         let vacio = '';
 
-        if(fecha === vacio){
+        if(fechatxt === vacio){
             document.getElementById('ex4_out').innerHTML = 'ingresa un fecha porfavor';
             return;
         }
+
+        let fecha = new Date(fechatxt);
 
         const diaSemanaTexto = fecha.toLocaleDateString('es-ES', { weekday: 'long' });
 
@@ -124,11 +125,28 @@ window.onload = function () {
     // =============================
     function ex5_comparar() {
 
+        let fechatxt = document.getElementById('ex5_data').value;
 
+        let vacio = '';
 
+        if(fechatxt === vacio){
+            document.getElementById('ex5_out').innerHTML = 'por favor, introduzca una fecha.';
+            return;
+        }
 
+        let fechaInput = new Date(fechatxt);
+        fechaInput.setHours(0, 0, 0, 0);
 
+        let hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
 
+        if(fechaInput < hoy){
+            document.getElementById('ex5_out').innerHTML = 'La fecha es pasada';
+        }else if(fechaInput.getTime() === hoy.getTime()){
+            document.getElementById('ex5_out').innerHTML = 'La fecha es presente';
+        }else if(fechaInput > hoy){
+            document.getElementById('ex5_out').innerHTML = 'La fecha es fututa';
+        }
     }
 
     // =============================
