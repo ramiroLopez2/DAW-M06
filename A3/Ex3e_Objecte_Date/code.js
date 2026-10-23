@@ -130,7 +130,7 @@ window.onload = function () {
 
         let vacio = '';
 
-        if(fechatxt === vacio){
+        if (fechatxt === vacio) {
             document.getElementById('ex5_out').innerHTML = 'por favor, introduzca una fecha.';
             return;
         }
@@ -141,11 +141,11 @@ window.onload = function () {
         let hoy = new Date();
         hoy.setHours(0, 0, 0, 0);
 
-        if(fechaInput < hoy){
+        if (fechaInput < hoy) {
             document.getElementById('ex5_out').innerHTML = 'La fecha es pasada';
-        }else if(fechaInput.getTime() === hoy.getTime()){
+        } else if (fechaInput.getTime() === hoy.getTime()) {
             document.getElementById('ex5_out').innerHTML = 'La fecha es presente';
-        }else if(fechaInput > hoy){
+        } else if (fechaInput > hoy) {
             document.getElementById('ex5_out').innerHTML = 'La fecha es fututa';
         }
     }
@@ -155,11 +155,20 @@ window.onload = function () {
     // =============================
     function ex6_mostrarHora() {
 
+        let valorSelect = document.getElementById('ex6_format');
+        let selectedOption = valorSelect.value;
 
+        console.log(selectedOption);
 
+        if (selectedOption === '24') {
+            let hora = new Date();
 
+            document.getElementById('ex6_out').innerHTML = hora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: false });
+        } else if (selectedOption === '12') {
+            let horaAMPM = new Date();
 
-
+            document.getElementById('ex6_out').innerHTML = horaAMPM.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+        }
     }
 
     // =============================
@@ -167,19 +176,57 @@ window.onload = function () {
     // =============================
     function ex7_comprovarTraspas() {
 
+        let label = document.getElementById('ex7_any').value;
 
+        if (label === '') {
+            document.getElementById('ex7_out').innerHTML = 'Por favor, introduce un año.';
+            return;
+        }
 
+        let esAnyBis = new Date(label);
 
+        esAnyBis = esAnyBis.getFullYear();
 
+        console.log(esAnyBis);
 
+        function esBisiesto(any) {
+            return (any % 4 === 0 && any % 100 !== 0) || (any % 400 === 0);
+        }
 
+        if (esBisiesto(esAnyBis)) {
+            document.getElementById('ex7_out').innerHTML = 'El año es bisiesto.';
+        } else {
+            document.getElementById('ex7_out').innerHTML = 'El año no es bisiesto.';
+        }
     }
 
     // =============================
     // EX8: Comptador fins a Cap d'Any
     // =============================
+    function ex8_mostrarTraspas() {
 
+        const finDelMundo = new Date('2026-12-31T23:59:59').getTime();
 
+        function cuentaAtras() {
+            const now = new Date().getTime();
+            const distance = finDelMundo - now;
 
+            if (distance < 0) {
+                document.getElementById('ex8_out').innerHTML = '¡Feliz Año Nuevo!';
+                clearInterval(timer);
+                return;
+            }
 
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('ex8_out').innerHTML =
+                days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+        }
+
+        cuentaAtras(); // Llamada inicial para mostrar el tiempo restante inmediatamente
+        const timer = setInterval(cuentaAtras, 1000);
+    }
 };
