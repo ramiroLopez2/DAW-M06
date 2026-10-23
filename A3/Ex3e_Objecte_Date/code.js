@@ -16,16 +16,15 @@ window.onload = function () {
     function ex1_validarData() {
 
         let data = document.getElementById('ex1_data').value;
-        let data1 = new Date(data);
 
         let vacio = "";
 
-        if (data1 === vacio) {
-            alert('Informa una fecha en formato DD/MM/AAAA');
+        if (data === vacio) {
+            document.getElementById('resultado').innerHTML = 'Informa una fecha en formato DD/MM/AAAA';
             return;
         }
 
-        if (validaData(data1)) {
+        if (validaData(data)) {
             document.getElementById('resultado').innerHTML = 'Data correcta';
         } else {
             document.getElementById('resultado').innerHTML = 'Data incorrecta';
@@ -109,7 +108,7 @@ window.onload = function () {
 
         let vacio = '';
 
-        if(fechatxt === vacio){
+        if (fechatxt === vacio) {
             document.getElementById('ex4_out').innerHTML = 'ingresa un fecha porfavor';
             return;
         }
