@@ -8,6 +8,7 @@ window.onload = function () {
     document.getElementById('ex5_btn').addEventListener('click', ex5_comparar);
     document.getElementById('ex6_btn').addEventListener('click', ex6_mostrarHora);
     document.getElementById('ex7_btn').addEventListener('click', ex7_comprovarTraspas);
+    document.getElementById('ex8_btn').addEventListener('click', ex8_mostrarTraspas);
 
     // =============================
     // EX1: Validació de data (DD/MM/AAAA)
